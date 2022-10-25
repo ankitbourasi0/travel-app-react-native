@@ -1,14 +1,19 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ScreenWrapper from './components/screenWrapper'
-
+import ScreenWrapper from './components/common/screenWrapper'
+import { NavigationContainer } from '@react-navigation/native'
+import AppNavigator from './navigation/app-navigator'
+import { Provider } from 'react-redux'
+import { store } from './redux/store'
 const App = () => {
   return (
+    <Provider store={store}>
+    <NavigationContainer>      
     <ScreenWrapper>
-    <View>
-      <Text>App</Text>
-    </View>
+      <AppNavigator />
     </ScreenWrapper>
+    </NavigationContainer>
+    </Provider>
   )
 }
 
